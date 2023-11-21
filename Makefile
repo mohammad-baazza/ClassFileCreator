@@ -27,4 +27,4 @@ $(NAME) : $(DIR) $(SRCS) $(INCLUDES)
 update :
 	@git pull > /dev/null 2> /dev/null && make && echo update done || echo Error
 
-.PHONY : first_time_settings update
+.PHONY : update
