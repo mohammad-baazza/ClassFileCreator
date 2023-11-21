@@ -3,7 +3,7 @@
 
 to install run the following command :
 
-```cd && git clone git@github.com:mohammad-baazza/ClassFileCreator.git && make -f ~/ClassFileCreator/Makefile```
+```cd && git clone git@github.com:mohammad-baazza/ClassFileCreator.git && cd ClassFileCreator && make```
 
 then it should work properly on ```zsh``` and ```bash```.
 
