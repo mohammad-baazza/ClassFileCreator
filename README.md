@@ -9,7 +9,7 @@ then it should work properly on ```zsh``` and ```bash```.
 
 you can use it with the command ```hpp``` (use ```hpp -h``` for help)
 
->to update you need just to run ```make update -f ~/ClassFileCreator```
+>to update you need just to run ```cd ~/ClassFileCreator && make update```
 
 ### examples
 
