@@ -1,7 +1,11 @@
 # this is a simple program that creates classes cpp and hpp files with canonical form based on the class name
 ## it can be useful for 42 students while doing the cpp modules
 
-to istall run the **install.sh** script, then it should work properly on ```zsh``` and ```bash```.
+to install run the following command :
+
+```cd && git clone git@github.com:mohammad-baazza/ClassFileCreator.git && make -f ~/ClassFileCreator/Makefile```
+
+then it should work properly on ```zsh``` and ```bash```.
 
 you can use it with the command ```hpp``` (use ```hpp -h``` for help)
 
