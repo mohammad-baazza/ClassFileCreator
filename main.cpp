@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 #include <cstdio>
+#include <cstring>
 #include "main.hpp"
 
 int s;
