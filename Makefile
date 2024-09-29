@@ -1,4 +1,4 @@
-SHELL = /bin/zsh
+SHELL = /bin/bash
 
 DIR = ~/.bin
 
@@ -16,7 +16,7 @@ $(DIR) :
 	@mkdir $(DIR) 2> /dev/null && echo $(DIR) created successfully || echo "failed to create " $(DIR)
 
 $(NAME) : $(DIR) $(SRCS) $(INCLUDES)
-	@c++ $(FLAGS) $(SRCS) -o $@ && echo compilation Done
+	@g++ $(FLAGS) $(SRCS) -o $@ && echo compilation Done
 
 .first :
 	@echo '\nPATH=$$PATH:~/.bin\n' >> ~/.zshrc && echo updating PATH for zsh Done
