@@ -19,8 +19,8 @@ $(NAME) : $(DIR) $(SRCS) $(INCLUDES)
 	@g++ $(FLAGS) $(SRCS) -o $@ && echo compilation Done
 
 .first :
-	@echo && echo "PATH=$$PATH:~/.bin" >> ~/.zshrc && echo updating PATH for zsh Done
-	@echo && echo "PATH=$$PATH:~/.bin" >> ~/.bashrc && echo updating PATH for bash Done
+	@echo >> ~/.zshrc && echo "PATH=$$PATH:~/.bin" >> ~/.zshrc && echo >> ~/.zshrc && echo updating PATH for zsh Done
+	@echo >> ~/.bashrc && echo "PATH=$$PATH:~/.bin" >> ~/.bashrc && echo >> ~/.bashrc && echo updating PATH for bash Done
 	@source ~/.zshrc && echo relaoding PATH in zsh Done
 	@source ~/.bashrc && echo relaoding PATH in bash Done && touch .first || echo Error
 
