@@ -179,6 +179,6 @@ int main(int argc, char *argv[])
             create_files(argv);
     }
     else
-        std::cout << "usage : " << argv[0] << " -h | [-sd] class_names ..." << std::endl;
+        std::cout << "usage : " << argv[0] << " [-h] | [-sd] class_names ..." << std::endl;
     return (0);
 }
