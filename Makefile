@@ -22,7 +22,7 @@ $(NAME) : $(DIR) $(SRCS) $(INCLUDES)
 	@echo >> ~/.zshrc && echo "PATH=$$PATH:~/.bin" >> ~/.zshrc && echo >> ~/.zshrc && echo updating PATH for zsh Done
 	@echo >> ~/.bashrc && echo "PATH=$$PATH:~/.bin" >> ~/.bashrc && echo >> ~/.bashrc && echo updating PATH for bash Done
 	@source ~/.zshrc && echo relaoding PATH in zsh Done
-	@source ~/.bashrc && echo relaoding PATH in bash Done && touch .first || echo Error
+	@source ~/.bashrc && echo relaoding PATH in bash Done && touch .first && PATH=$$PATH:~/.bin || echo Error
 
 update :
 	@git pull > /dev/null 2> /dev/null && make && echo update done || echo Error
