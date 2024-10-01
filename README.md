@@ -13,7 +13,7 @@ you can use it with the command ```hpp``` (use ```hpp -h``` for help)
 
 ### examples
 
-<img width="238" alt="Screen Shot 2023-10-24 at 2 47 31 AM" src="https://github.com/mohammad-baazza/42tools/assets/115046361/1366d134-8b0a-4c68-900d-3505efdadc54">
+<img width="238" alt="examples" src="https://github.com/user-attachments/assets/4e8b507e-62b3-4e18-9a73-18ecb15dc864">
 
 > hint : you can write more than one class name at a time.
 
