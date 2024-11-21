@@ -1,30 +1,31 @@
 SHELL = /bin/bash
 
-DIR = ~/.bin
-
-NAME = ~/.bin/hpp
+NAME = hpp
 
 SRCS = main.cpp
 
 INCLUDES = main.hpp
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -O2
 
-all : $(NAME) .first
+all : $(NAME)
 
-$(DIR) :
-	@mkdir $(DIR) 2> /dev/null && echo $(DIR) created successfully || echo "failed to create " $(DIR)
+dir :
+	@echo -n "Enter the directory where you want to install the program (default is ~/.local/bin): "
+	@read DIR && [ -z $$DIR ] && echo ~/.local/bin > /tmp/.dir || echo $$DIR > /tmp/.dir
+	@mkdir -p $$(cat /tmp/.dir)
+	@echo "Directory set to $$(cat /tmp/.dir)"
 
-$(NAME) : $(DIR) $(SRCS) $(INCLUDES)
-	@g++ $(FLAGS) $(SRCS) -o $@ && echo compilation Done
+$(NAME) : dir $(SRCS) $(INCLUDES) path
+	@g++ $(FLAGS) $(SRCS) -o $$(cat /tmp/.dir)/$@ && echo "Installed in $$(cat /tmp/.dir)" \
+	|| echo "Error while compiling"
+	@echo "you may need to reopen the shell to use the program"
 
-.first :
-	@echo >> ~/.zshrc && echo "PATH=$$PATH:~/.bin" >> ~/.zshrc && echo >> ~/.zshrc && echo updating PATH for zsh Done
-	@echo >> ~/.bashrc && echo "PATH=$$PATH:~/.bin" >> ~/.bashrc && echo >> ~/.bashrc && echo updating PATH for bash Done
-	@source ~/.zshrc && echo relaoding PATH in zsh Done
-	@source ~/.bashrc && echo relaoding PATH in bash Done && touch .first && echo you may need to reopen the shell to use the program || echo Error
+path :
+	@grep "export PATH=" ~/.zshrc > /tmp/tmp && grep -qs $$(cat /tmp/.dir) /tmp/tmp || (echo  >> ~/.zshrc && echo "export PATH=\$$PATH:$$(echo $$(cat /tmp/.dir))" >> ~/.zshrc)
+	@grep "export PATH=" ~/.bashrc > /tmp/tmp && grep -qs $$(cat /tmp/.dir) /tmp/tmp || (echo  >> ~/.bashrc && echo "export PATH=\$$PATH:$$(echo $$(cat /tmp/.dir))" >> ~/.bashrc)
 
 update :
-	@git pull > /dev/null 2> /dev/null && make && echo update done || echo Error
+	@git pull > /dev/null 2> /dev/null && make 2>/dev/null && echo "update done" || echo "already up to date"
 
-.PHONY : update
+.PHONY : all update path
